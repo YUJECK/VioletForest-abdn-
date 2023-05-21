@@ -1,13 +1,11 @@
 ﻿using System;
-using SatansForest;
-using SatansForest.InputServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;
 
-namespace InternalAssets.Scripts.InputServices
+namespace SatansForest.InputServices
 {
-    public sealed class NewInputSystemService : IInputService, ITickable
+    public sealed class InputSystemService : IInputService, ITickable
     {
         public event Action<Vector2> OnMoved;
         public event Action OnInteracted;
@@ -17,7 +15,7 @@ namespace InternalAssets.Scripts.InputServices
 
         private readonly ActionMap _inputActions;
 
-        public NewInputSystemService()
+        public InputSystemService()
         {
             _inputActions = new ActionMap();
 

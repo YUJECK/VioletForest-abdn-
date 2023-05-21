@@ -1,14 +1,15 @@
-using InternalAssets.Scripts.InputServices;
+using SatansForest.InputServices;
 using Zenject;
 
-namespace InternalAssets.Scripts.MonoInstallers
+namespace SatansForest.MonoInstallers
 {
     public sealed class PlayerInstaller : MonoInstaller
     {
         public override void InstallBindings()
         {
-            Container.BindInterfacesAndSelfTo<NewInputSystemService>().FromInstance(new NewInputSystemService());
-                
+            Container
+                .BindInterfacesAndSelfTo<InputSystemService>()
+                .FromInstance(new InputSystemService());
         }
     }
 }

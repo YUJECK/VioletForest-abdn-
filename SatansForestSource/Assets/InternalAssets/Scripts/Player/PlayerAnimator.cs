@@ -1,14 +1,17 @@
 using UnityEngine;
 
-public class PlayerAnimator : MonoBehaviour
+namespace SatansForest.PlayerServices 
 {
-    private const string WalkAnimation = "PlayerWalk";
-    private const string IdleAnimation = "PlayerIdle";
- 
-    private Animator _animator;
+    public class PlayerAnimator : MonoBehaviour
+    {
+        private const string WalkAnimation = "PlayerWalk";
+        private const string IdleAnimation = "PlayerIdle";
+     
+        private Animator _animator;
 
-    private void Start() => _animator = GetComponent<Animator>();
+        private void Start() => _animator = GetComponent<Animator>();
 
-    public void PlayWalkAnimation() => _animator.Play(WalkAnimation);
-    public void PlayIdleAnimation() => _animator.Play(IdleAnimation);
+        public void PlayWalkAnimation() => _animator.Play(WalkAnimation);
+        public void PlayIdleAnimation() => _animator.Play(IdleAnimation);
+    }
 }

@@ -2,7 +2,7 @@ using SatansForest.InputServices;
 using UnityEngine;
 using Zenject;
 
-namespace Presnoyarsk.Player
+namespace SatansForest.PlayerServices
 {
     public class PlayerMovement : MonoBehaviour
     {
