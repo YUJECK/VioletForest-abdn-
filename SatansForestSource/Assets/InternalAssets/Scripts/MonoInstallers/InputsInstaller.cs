@@ -16,7 +16,7 @@ namespace SatansForest.MonoInstallers
                 .AsSingle();
             
             Container
-                .Bind<MouseSelector>()
+                .BindInterfacesAndSelfTo<MouseSelector>()
                 .FromInstance(new MouseSelector(inputService))
                 .AsSingle();
         }

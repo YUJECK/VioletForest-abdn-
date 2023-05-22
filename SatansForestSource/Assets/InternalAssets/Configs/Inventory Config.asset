@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83b433480f6d4f3b96deb8cd81785f30, type: 3}
   m_Name: Inventory Config
   m_EditorClassIdentifier: 
-  <InventorySize>k__BackingField: 10
+  <InventorySize>k__BackingField: 6

@@ -8,11 +8,12 @@ namespace SatansForest.InventorySystem.HUD
     public sealed class ItemSlot : MonoBehaviour
     {
         public IItem CurrentItem { get; private set; }
-        private Image _slotImage;
+        [SerializeField] private Image _slotImage;
 
         private void Awake()
         {
-            _slotImage = GetComponent<Image>();
+//            _slotImage = GetComponentInChildren<Image>();
+            SetItem(null);
         }
 
         public Type ItemType()

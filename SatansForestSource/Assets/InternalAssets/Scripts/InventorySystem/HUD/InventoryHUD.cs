@@ -7,10 +7,9 @@ namespace SatansForest.InventorySystem.HUD
 {
     public sealed class InventoryHUD : MonoBehaviour
     {
-        [SerializeField] private GameObject slotPrefab;
-        
+        [SerializeField] private List<ItemSlot> slots;
+
         private IInventory _inventory;
-        [SerializeField] private List<ItemSlot> _slots;
 
         [Inject]
         public void Construct(IInventory inventory)
@@ -21,19 +20,9 @@ namespace SatansForest.InventorySystem.HUD
             _inventory.OnItemRemoved += OnItemRemoved;
         }
 
-        private void Awake()
-        {
-            CreateSlots();
-        }
-
-        private void CreateSlots()
-        {
-            
-        }
-
         private ItemSlot GetSlotWith(Type type)
         {
-            foreach (var itemSlot in _slots)
+            foreach (var itemSlot in slots)
             {
                 if (itemSlot.ItemType() == type)
                     return itemSlot;

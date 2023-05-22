@@ -2,8 +2,8 @@ namespace SatansForest.MouseSelections
 {
     public interface IMouseSelectable
     {
-        void OnMousePointed();
+        void OnPointed();
         void Select();
-        void OnMouseDepointed();
+        void Deselect();
     }
 }
