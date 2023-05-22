@@ -37,6 +37,24 @@ namespace SatansForest
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""LeftMouseButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""6fd87e7c-785e-4d40-bd8b-e178aa548e96"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RIghtMouseButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""fd12d3ce-1e27-45b0-baa3-c992be6ef775"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -94,6 +112,28 @@ namespace SatansForest
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8b2ca4fb-91a0-482b-89bf-9c1d5e6f36d2"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftMouseButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""31d32e74-8b9b-4bbf-a457-57e04d995e36"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RIghtMouseButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -103,6 +143,8 @@ namespace SatansForest
             // WandererMode
             m_WandererMode = asset.FindActionMap("WandererMode", throwIfNotFound: true);
             m_WandererMode_Movement = m_WandererMode.FindAction("Movement", throwIfNotFound: true);
+            m_WandererMode_LeftMouseButton = m_WandererMode.FindAction("LeftMouseButton", throwIfNotFound: true);
+            m_WandererMode_RIghtMouseButton = m_WandererMode.FindAction("RIghtMouseButton", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -165,11 +207,15 @@ namespace SatansForest
         private readonly InputActionMap m_WandererMode;
         private List<IWandererModeActions> m_WandererModeActionsCallbackInterfaces = new List<IWandererModeActions>();
         private readonly InputAction m_WandererMode_Movement;
+        private readonly InputAction m_WandererMode_LeftMouseButton;
+        private readonly InputAction m_WandererMode_RIghtMouseButton;
         public struct WandererModeActions
         {
             private @ActionMap m_Wrapper;
             public WandererModeActions(@ActionMap wrapper) { m_Wrapper = wrapper; }
             public InputAction @Movement => m_Wrapper.m_WandererMode_Movement;
+            public InputAction @LeftMouseButton => m_Wrapper.m_WandererMode_LeftMouseButton;
+            public InputAction @RIghtMouseButton => m_Wrapper.m_WandererMode_RIghtMouseButton;
             public InputActionMap Get() { return m_Wrapper.m_WandererMode; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -182,6 +228,12 @@ namespace SatansForest
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
+                @LeftMouseButton.started += instance.OnLeftMouseButton;
+                @LeftMouseButton.performed += instance.OnLeftMouseButton;
+                @LeftMouseButton.canceled += instance.OnLeftMouseButton;
+                @RIghtMouseButton.started += instance.OnRIghtMouseButton;
+                @RIghtMouseButton.performed += instance.OnRIghtMouseButton;
+                @RIghtMouseButton.canceled += instance.OnRIghtMouseButton;
             }
 
             private void UnregisterCallbacks(IWandererModeActions instance)
@@ -189,6 +241,12 @@ namespace SatansForest
                 @Movement.started -= instance.OnMovement;
                 @Movement.performed -= instance.OnMovement;
                 @Movement.canceled -= instance.OnMovement;
+                @LeftMouseButton.started -= instance.OnLeftMouseButton;
+                @LeftMouseButton.performed -= instance.OnLeftMouseButton;
+                @LeftMouseButton.canceled -= instance.OnLeftMouseButton;
+                @RIghtMouseButton.started -= instance.OnRIghtMouseButton;
+                @RIghtMouseButton.performed -= instance.OnRIghtMouseButton;
+                @RIghtMouseButton.canceled -= instance.OnRIghtMouseButton;
             }
 
             public void RemoveCallbacks(IWandererModeActions instance)
@@ -209,6 +267,8 @@ namespace SatansForest
         public interface IWandererModeActions
         {
             void OnMovement(InputAction.CallbackContext context);
+            void OnLeftMouseButton(InputAction.CallbackContext context);
+            void OnRIghtMouseButton(InputAction.CallbackContext context);
         }
     }
 }

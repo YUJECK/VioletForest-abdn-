@@ -19,6 +19,9 @@ namespace SatansForest.InputServices
         {
             _inputActions = new ActionMap();
 
+            _inputActions.WandererMode.LeftMouseButton.performed += LeftMouseButton_performed;
+            _inputActions.WandererMode.RIghtMouseButton.performed += RightMouseButton_performed;
+            
             _inputActions.Enable();
         }
 

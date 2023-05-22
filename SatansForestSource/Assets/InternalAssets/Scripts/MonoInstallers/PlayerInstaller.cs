@@ -7,9 +7,7 @@ namespace SatansForest.MonoInstallers
     {
         public override void InstallBindings()
         {
-            Container
-                .BindInterfacesAndSelfTo<InputSystemService>()
-                .FromInstance(new InputSystemService());
+
         }
     }
 }
