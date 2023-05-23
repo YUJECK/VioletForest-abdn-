@@ -24,7 +24,7 @@ namespace SatansForest.InventorySystem.HUD
         {
             foreach (var itemSlot in slots)
             {
-                if (itemSlot.ItemType() == type)
+                if (itemSlot.ItemType == type)
                     return itemSlot;
             }
 
