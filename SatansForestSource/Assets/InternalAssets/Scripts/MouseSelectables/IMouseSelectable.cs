@@ -1,4 +1,4 @@
-namespace SatansForest.MouseSelections
+namespace VioletHell.MouseSelections
 {
     public interface IMouseSelectable
     {

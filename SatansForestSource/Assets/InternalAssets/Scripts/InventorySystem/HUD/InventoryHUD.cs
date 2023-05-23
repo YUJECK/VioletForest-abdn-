@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-namespace SatansForest.InventorySystem.HUD
+namespace VioletHell.InventorySystem.HUD
 {
     public sealed class InventoryHUD : MonoBehaviour
     {
@@ -33,12 +33,15 @@ namespace SatansForest.InventorySystem.HUD
         
         private void OnItemRemoved(Type itemType)
         {
-            GetSlotWith(itemType)?.SetItem(null);
+            GetSlotWith(itemType)?.RemoveItems(1);
         }
 
-        private void OnItemAdded(Item item)
+        private void OnItemAdded(Item item, int itemsCount)
         {
-            GetSlotWith(null)?.SetItem(item);
+            ItemSlot slot = GetSlotWith(item.GetItemType());
+            
+            if (slot != null) slot.SetItem(item);
+            else GetSlotWith(null)?.SetItem(item);
         }
     }
 }

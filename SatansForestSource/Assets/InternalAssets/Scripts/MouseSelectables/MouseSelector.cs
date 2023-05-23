@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using SatansForest.InputServices;
 using UnityEngine;
+using VioletHell.InputServices;
 using Zenject;
 
-namespace SatansForest.MouseSelections
+namespace VioletHell.MouseSelections
 {
     public sealed class MouseSelector : ITickable
     {

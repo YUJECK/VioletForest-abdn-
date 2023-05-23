@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;
 
-namespace SatansForest.InputServices
+namespace VioletHell.InputServices
 {
     public sealed class InputSystemService : IInputService, ITickable
     {

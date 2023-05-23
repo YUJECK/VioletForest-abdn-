@@ -1,7 +1,7 @@
-using SatansForest.InputServices;
+using VioletHell.InputServices;
 using Zenject;
 
-namespace SatansForest.MonoInstallers
+namespace VioletHell.MonoInstallers
 {
     public sealed class PlayerInstaller : MonoInstaller
     {

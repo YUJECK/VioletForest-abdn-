@@ -1,8 +1,8 @@
-using SatansForest.InputServices;
 using UnityEngine;
+using VioletHell.InputServices;
 using Zenject;
 
-namespace SatansForest.PlayerServices
+namespace VioletHell.PlayerServices
 {
     public class PlayerFlipper : MonoBehaviour
     {

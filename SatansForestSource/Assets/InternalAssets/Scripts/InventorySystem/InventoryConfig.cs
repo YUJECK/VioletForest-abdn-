@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SatansForest.InventorySystem
+namespace VioletHell.InventorySystem
 {
     [CreateAssetMenu]
     public sealed class InventoryConfig : ScriptableObject

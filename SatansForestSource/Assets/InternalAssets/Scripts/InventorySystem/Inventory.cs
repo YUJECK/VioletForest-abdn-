@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
 
-namespace SatansForest.InventorySystem
+namespace VioletHell.InventorySystem
 {
     public sealed class Inventory : IInventory
     {
-        public event Action<Item> OnItemAdded;
+        public event Action<Item, int> OnItemAdded;
         public event Action<Type> OnItemRemoved;
+        public event Action<Type[]> OnInventoryUpdated;
         
         private readonly InventoryConfig _config;
         private readonly Dictionary<Type, int> _items = new();
@@ -18,26 +19,33 @@ namespace SatansForest.InventorySystem
             _config = config;
         }
 
-        public void Add<TItem>(TItem item) where TItem : Item
+        public void Add(Item item)
         {
             if (item != null && _items.Count <= _config.InventorySize)
             {
-                if (_items.ContainsKey(typeof(TItem)))
+                if (_items.ContainsKey(item.GetItemType()))
                 {
-                    _items[typeof(TItem)]++;
-                    return;
+                    _items[item.GetItemType()]++;
                 }
-                
-                OnItemAdded?.Invoke(item);
+                else
+                {
+                    _items.Add(item.GetItemType(), 1);
+                }
+
+                OnItemAdded?.Invoke(item, _items[item.GetItemType()]);
             }
         }
 
-        public void Remove<TItem>() where TItem : Item
+        public void Remove(Type itemType)
         {
-            if (_items.ContainsKey(typeof(TItem)))
+            if (_items.ContainsKey(itemType))
             {
-                _items.Remove(typeof(TItem));
-                OnItemRemoved?.Invoke(typeof(TItem));
+                _items[itemType]--;
+                
+                if (_items[itemType] == 0)
+                    _items.Remove(itemType);
+                
+                OnItemRemoved?.Invoke(itemType);
             }
         }
 

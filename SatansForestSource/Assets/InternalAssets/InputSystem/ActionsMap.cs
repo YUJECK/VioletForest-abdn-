@@ -15,7 +15,7 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-namespace SatansForest
+namespace VioletHell
 {
     public partial class @ActionMap: IInputActionCollection2, IDisposable
     {

@@ -1,4 +1,4 @@
-namespace SatansForest.InventorySystem
+namespace VioletHell.InventorySystem
 {
     public abstract class UsableItem : Item
     {

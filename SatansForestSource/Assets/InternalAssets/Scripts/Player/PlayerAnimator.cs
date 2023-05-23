@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SatansForest.PlayerServices 
+namespace VioletHell.PlayerServices 
 {
     public sealed class PlayerAnimator : MonoBehaviour
     {

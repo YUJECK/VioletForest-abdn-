@@ -1,8 +1,8 @@
-using SatansForest.InputServices;
-using SatansForest.MouseSelections;
+using VioletHell.InputServices;
+using VioletHell.MouseSelections;
 using Zenject;
 
-namespace SatansForest.MonoInstallers
+namespace VioletHell.MonoInstallers
 {
     public sealed class InputsInstaller : MonoInstaller
     {

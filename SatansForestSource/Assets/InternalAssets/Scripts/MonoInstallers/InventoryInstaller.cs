@@ -1,8 +1,8 @@
-using SatansForest.InventorySystem;
 using UnityEngine;
+using VioletHell.InventorySystem;
 using Zenject;
 
-namespace SatansForest.MonoInstallers
+namespace VioletHell.MonoInstallers
 {
     public sealed class InventoryInstaller : MonoInstaller
     {

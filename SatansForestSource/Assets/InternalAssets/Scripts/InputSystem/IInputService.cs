@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace SatansForest.InputServices
+namespace VioletHell.InputServices
 {
     public interface IInputService
     {
