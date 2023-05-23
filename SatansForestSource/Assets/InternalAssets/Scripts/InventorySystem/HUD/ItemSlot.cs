@@ -11,7 +11,7 @@ namespace SatansForest.InventorySystem.HUD
         public Type ItemType
             => _currentItem?.GetType();
 
-        private IItem _currentItem;
+        private Item _currentItem;
         private Button _button;
 
         private void Awake()
@@ -23,7 +23,7 @@ namespace SatansForest.InventorySystem.HUD
         }
 
 
-        public void SetItem(IItem item)
+        public void SetItem(Item item)
         {
             if (item == null)
             {
@@ -35,7 +35,7 @@ namespace SatansForest.InventorySystem.HUD
                 _slotImage.enabled = true;
                 _slotImage.sprite = item.ItemSprite;
                 
-                if(item is IUsableItem)
+                if(item is UsableItem)
                     _button.enabled = true;
             }
 
@@ -44,7 +44,7 @@ namespace SatansForest.InventorySystem.HUD
 
         private void OnButtonPressed()
         {
-            (_currentItem as IUsableItem)?.Use();
+            (_currentItem as UsableItem)?.Use();
         }
     }
 }

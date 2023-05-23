@@ -36,7 +36,7 @@ namespace SatansForest.InventorySystem.HUD
             GetSlotWith(itemType)?.SetItem(null);
         }
 
-        private void OnItemAdded(IItem item)
+        private void OnItemAdded(Item item)
         {
             GetSlotWith(null)?.SetItem(item);
         }

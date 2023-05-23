@@ -4,14 +4,14 @@ namespace SatansForest.InventorySystem
 {
     public interface IInventory
     {
-        event Action<IItem> OnItemAdded;
+        event Action<Item> OnItemAdded;
         event Action<Type> OnItemRemoved;
 
         int InventorySize { get; }
 
-        public void Add<TItem>(TItem item) where TItem : IItem;
-        public void Remove<TItem>() where TItem : IItem;
-        public IItem Get<TItem>() where TItem : IItem;
-        public bool Contains<TItem>() where TItem : IItem;
+        public void Add<TItem>(TItem item) where TItem : Item;
+        public void Remove<TItem>() where TItem : Item;
+        public Item Get<TItem>() where TItem : Item;
+        public bool Contains<TItem>() where TItem : Item;
     }
 }

@@ -5,7 +5,7 @@ namespace SatansForest.InventorySystem
 {
     public sealed class Inventory : IInventory
     {
-        public event Action<IItem> OnItemAdded;
+        public event Action<Item> OnItemAdded;
         public event Action<Type> OnItemRemoved;
         
         private readonly InventoryConfig _config;
@@ -18,7 +18,7 @@ namespace SatansForest.InventorySystem
             _config = config;
         }
 
-        public void Add<TItem>(TItem item) where TItem : IItem
+        public void Add<TItem>(TItem item) where TItem : Item
         {
             if (item != null && _items.Count <= _config.InventorySize)
             {
@@ -32,7 +32,7 @@ namespace SatansForest.InventorySystem
             }
         }
 
-        public void Remove<TItem>() where TItem : IItem
+        public void Remove<TItem>() where TItem : Item
         {
             if (_items.ContainsKey(typeof(TItem)))
             {
@@ -41,12 +41,12 @@ namespace SatansForest.InventorySystem
             }
         }
 
-        public IItem Get<TItem>() where TItem : IItem
+        public Item Get<TItem>() where TItem : Item
         {
             return null;
         }
 
-        public bool Contains<TItem>() where TItem : IItem
+        public bool Contains<TItem>() where TItem : Item
         {
             return _items.ContainsKey(typeof(TItem));
         }

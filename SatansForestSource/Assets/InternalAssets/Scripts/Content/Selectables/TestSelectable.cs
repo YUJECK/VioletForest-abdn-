@@ -8,7 +8,7 @@ namespace SatansForest.Content.Selectables
 {
     public sealed class TestSelectable : MonoBehaviour, IMouseSelectable
     {
-        [SerializeField] private TestItem item;
+        [SerializeField] private Item item;
         private IInventory _inventory;
         private SpriteRenderer _sprite;
 
