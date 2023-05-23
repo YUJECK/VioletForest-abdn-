@@ -76,6 +76,7 @@ namespace VioletHell.InventorySystem.HUD
             _slotImage.enabled = false;
             _button.enabled = false;
 
+            _itemsCountText.text = "";
             _itemsCount = 0;
         }
 
